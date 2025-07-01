@@ -1,19 +1,30 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html>
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Kidsio Safe Search</title>
-  <link rel="stylesheet" href="style.css">
+  <title>Cat Game Clicker</title>
+  <style>
+    body { margin: 0; overflow: hidden; background: black; }
+    canvas { display: block; }
+  </style>
 </head>
 <body>
-  <div class="container">
-    <h1></h1>Kidsio</h1>
-    <form action="https://www.google.com/search" method="GET" target="_blank">
-      <input type="text" name="q" placeholder="O que você quer ver?" required>
-      <input type="hidden" name="safe" value="strict"> <!-- Ativa SafeSearch -->
-      <button type="submit">Pesquisar</button>
-    </form>
-  </div>
-</body>
-</html>
+  <canvas id="canvas"></canvas>
+  <script>
+    const canvas = document.getElementById("canvas");
+    const ctx = canvas.getContext("2d");
+
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+
+    // Sprite image
+    const img = new Image();
+    img.src = "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9b/DVD_logo.svg/320px-DVD_logo.svg.png";
+
+    const sprites = [];
+
+    // Criar múltiplos sprites
+    for (let i = 0; i < 10; i++) {
+      sprites.push({
+        x: Math.random() * (canvas.width - 100),
+        y: Math.random() * (canvas.height - 100),
+        dx: (Math.random()
